@@ -41,7 +41,7 @@ pub fn append(first: DList(a), with second: DList(a)) -> DList(a) {
 /// Get a dlist that represents the concatenation of all given dlist
 ///
 pub fn concat(dlists: List(DList(a))) -> DList(a) {
-  dlists |> list.fold_right(empty(), append)
+  dlists |> list.fold(empty(), append)
 }
 
 /// Counts the number of elements in a given dlist.
