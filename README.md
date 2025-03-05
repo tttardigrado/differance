@@ -3,22 +3,18 @@
 [![Package Version](https://img.shields.io/hexpm/v/dlist)](https://hex.pm/packages/dlist)
 [![Hex Docs](https://img.shields.io/badge/hex-docs-ffaff3)](https://hexdocs.pm/dlist/)
 
-```sh
-gleam add dlist@1
-```
-```gleam
-import dlist
+A difference list library for Gleam!
 
-pub fn main() {
-  // TODO: An example of the project in use
-}
+A difference list (diff list or dlist for short) is a representation of a list 
+that allows for `snoc` and `append` operations in constant O(1) time.
+
+## Instalation
+
+This library can be added to your Gleam project by running:
+
+
+```sh
+$ gleam add dlist
 ```
 
 Further documentation can be found at <https://hexdocs.pm/dlist>.
-
-## Development
-
-```sh
-gleam run   # Run the project
-gleam test  # Run the tests
-```
