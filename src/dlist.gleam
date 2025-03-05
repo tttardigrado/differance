@@ -5,7 +5,11 @@ pub type DList(a) =
   fn(List(a)) -> List(a)
 
 pub fn empty() -> DList(a) {
-  fn(rst) { rst }
+  fn(rest) { rest }
+}
+
+pub fn singleton(elem: a) -> DList(a) {
+  fn(rest) { [elem, ..rest] }
 }
 
 pub fn to_list(dlist: DList(a)) -> List(a) {
