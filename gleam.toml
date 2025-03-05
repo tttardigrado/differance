@@ -1,8 +1,8 @@
-name = "dlist"
+name = "differance"
 version = "1.0.0"
 description = "A difference list implementation in Gleam."
 licences = ["MIT"]
-repository = { type = "github", user = "tttardigrado", repo = "dlist" }
+repository = { type = "github", user = "tttardigrado", repo = "differance" }
 
 [dependencies]
 gleam_stdlib = ">= 0.34.0 and < 2.0.0"

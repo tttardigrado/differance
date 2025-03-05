@@ -1,4 +1,4 @@
-# dlist
+# differance
 
 [![Package Version](https://img.shields.io/hexpm/v/dlist)](https://hex.pm/packages/dlist)
 [![Hex Docs](https://img.shields.io/badge/hex-docs-ffaff3)](https://hexdocs.pm/dlist/)
@@ -12,9 +12,8 @@ that allows for `snoc` and `append` operations in constant O(1) time.
 
 This library can be added to your Gleam project by running:
 
-
 ```sh
-$ gleam add dlist
+$ gleam add differance
 ```
 
-Further documentation can be found at <https://hexdocs.pm/dlist>.
+Further documentation can be found at <https://hexdocs.pm/differance>.
