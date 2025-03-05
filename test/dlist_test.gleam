@@ -2,7 +2,7 @@ import dlist
 import gleeunit
 import gleeunit/should
 import gleam/option.{None, Some}
-
+import gleam/string
 
 pub fn main() {
   gleeunit.main()
@@ -290,3 +290,42 @@ pub fn map_nonempty_test() {
   |> should.equal([2, 4, 3, 43])
 }
 
+// Test fold
+
+pub fn fold_empty_test() {
+  dlist.empty()
+  |> dlist.fold("123", string.append)
+  |> should.equal("123")
+}
+
+pub fn fold_singleton_test() {
+  dlist.singleton("abc")
+  |> dlist.fold("123", string.append)
+  |> should.equal("123abc")
+}
+
+pub fn fold_nonempty_test() {
+  ["abc", "456", "def"]
+  |> dlist.from_list
+  |> dlist.fold("123", string.append)
+  |> should.equal("123abc456def")
+}
+
+pub fn fold_right_empty_test() {
+  dlist.empty()
+  |> dlist.fold_right("123", string.append)
+  |> should.equal("123")
+}
+
+pub fn fold_right_singleton_test() {
+  dlist.singleton("abc")
+  |> dlist.fold_right("123", string.append )
+  |> should.equal("123abc")
+}
+
+pub fn fold_right_nonempty_test() {
+  ["abc", "456", "def"]
+  |> dlist.from_list
+  |> dlist.fold_right("123", string.append)
+  |> should.equal("123def456abc")
+}
