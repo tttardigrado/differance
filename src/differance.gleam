@@ -98,11 +98,7 @@ pub fn map(diff: DList(a), with f: fn(a) -> b) -> DList(b) {
 /// 
 /// If a diff is longer than the other the extra elements are dropped
 ///
-pub fn map2(
-  diff1: DList(a),
-  diff2: DList(b),
-  with f: fn(a, b) -> c,
-) -> DList(c) {
+pub fn map2(diff1: DList(a), diff2: DList(b), with f: fn(a, b) -> c) -> DList(c) {
   fn(rest) {
     list.map2(to_list(diff1), to_list(diff2), f)
     |> list.append(rest)

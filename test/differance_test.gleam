@@ -1,8 +1,8 @@
 import differance
-import gleeunit
-import gleeunit/should
 import gleam/option.{None, Some}
 import gleam/string
+import gleeunit
+import gleeunit/should
 
 pub fn main() {
   gleeunit.main()
@@ -79,7 +79,10 @@ pub fn append_singleton_singleton_test() {
 }
 
 pub fn append_singleton_nonempty_test() {
-  differance.append(differance.singleton(42), differance.from_list([1, 3, 2, 42]))
+  differance.append(
+    differance.singleton(42),
+    differance.from_list([1, 3, 2, 42]),
+  )
   |> differance.to_list
   |> should.equal([42, 1, 3, 2, 42])
 }
@@ -91,13 +94,19 @@ pub fn append_nonempty_empty_test() {
 }
 
 pub fn append_nonempty_singleton_test() {
-  differance.append(differance.from_list([1, 3, 2, 42]), differance.singleton(42))
+  differance.append(
+    differance.from_list([1, 3, 2, 42]),
+    differance.singleton(42),
+  )
   |> differance.to_list
   |> should.equal([1, 3, 2, 42, 42])
 }
 
 pub fn append_nonempty_nonempty_test() {
-  differance.append(differance.from_list([1, 3, 2, 42]), differance.from_list([5, 3, 42, 1]))
+  differance.append(
+    differance.from_list([1, 3, 2, 42]),
+    differance.from_list([5, 3, 42, 1]),
+  )
   |> differance.to_list
   |> should.equal([1, 3, 2, 42, 5, 3, 42, 1])
 }
@@ -160,7 +169,6 @@ pub fn reverse_test() {
   |> differance.to_list
   |> should.equal([42, 2, 3, 1])
 }
-
 
 // Test head
 
@@ -231,7 +239,10 @@ pub fn zip_nonempty_empty_test() {
 }
 
 pub fn zip_nonempty_nonempty_test() {
-  differance.zip(differance.from_list([1, 3, 2, 42]), differance.from_list([3, 4, 24]))
+  differance.zip(
+    differance.from_list([1, 3, 2, 42]),
+    differance.from_list([3, 4, 24]),
+  )
   |> differance.to_list
   |> should.equal([#(1, 3), #(3, 4), #(2, 24)])
 }
@@ -261,7 +272,11 @@ pub fn map2_nonempty_empty_test() {
 
 pub fn map2_nonempty_nonempty_test() {
   fn(a, b) { a + b }
-  |> differance.map2(differance.from_list([1, 3, 2, 42]), differance.from_list([3, 4, 24]), _)
+  |> differance.map2(
+    differance.from_list([1, 3, 2, 42]),
+    differance.from_list([3, 4, 24]),
+    _,
+  )
   |> differance.to_list
   |> should.equal([4, 7, 26])
 }
@@ -319,7 +334,7 @@ pub fn fold_right_empty_test() {
 
 pub fn fold_right_singleton_test() {
   differance.singleton("abc")
-  |> differance.fold_right("123", string.append )
+  |> differance.fold_right("123", string.append)
   |> should.equal("123abc")
 }
 
