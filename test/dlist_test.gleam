@@ -205,3 +205,88 @@ pub fn tail_test() {
   |> option.map(dlist.to_list)
   |> should.equal(Some([3, 2, 42]))
 }
+
+// Test zip
+
+pub fn zip_empty_empty_test() {
+  dlist.zip(dlist.empty(), dlist.empty())
+  |> dlist.to_list
+  |> should.equal([])
+}
+
+pub fn zip_empty_nonempty_test() {
+  [1, 3, 2, 42]
+  |> dlist.from_list
+  |> dlist.zip(dlist.empty(), _)
+  |> dlist.to_list
+  |> should.equal([])
+}
+
+pub fn zip_nonempty_empty_test() {
+  [1, 3, 2, 42]
+  |> dlist.from_list
+  |> dlist.zip(dlist.empty())
+  |> dlist.to_list
+  |> should.equal([])
+}
+
+pub fn zip_nonempty_nonempty_test() {
+  dlist.zip(dlist.from_list([1, 3, 2, 42]), dlist.from_list([3, 4, 24]))
+  |> dlist.to_list
+  |> should.equal([#(1, 3), #(3, 4), #(2, 24)])
+}
+
+// Test map2
+
+pub fn map2_empty_empty_test() {
+  fn(a, b) { a + b }
+  |> dlist.map2(dlist.empty(), dlist.empty(), _)
+  |> dlist.to_list
+  |> should.equal([])
+}
+
+pub fn map2_empty_nonempty_test() {
+  fn(a, b) { a + b }
+  |> dlist.map2(dlist.empty(), dlist.from_list([1, 3, 2, 42]), _)
+  |> dlist.to_list
+  |> should.equal([])
+}
+
+pub fn map2_nonempty_empty_test() {
+  fn(a, b) { a + b }
+  |> dlist.map2(dlist.empty(), dlist.from_list([1, 3, 2, 42]), _)
+  |> dlist.to_list
+  |> should.equal([])
+}
+
+pub fn map2_nonempty_nonempty_test() {
+  fn(a, b) { a + b }
+  |> dlist.map2(dlist.from_list([1, 3, 2, 42]), dlist.from_list([3, 4, 24]), _)
+  |> dlist.to_list
+  |> should.equal([4, 7, 26])
+}
+
+// Test map
+
+pub fn map_empty_test() {
+  dlist.empty()
+  |> dlist.map(fn(a) { a + 1 })
+  |> dlist.to_list
+  |> should.equal([])
+}
+
+pub fn map_singleton_test() {
+  dlist.singleton(42)
+  |> dlist.map(fn(a) { a + 1 })
+  |> dlist.to_list
+  |> should.equal([43])
+}
+
+pub fn map_nonempty_test() {
+  [1, 3, 2, 42]
+  |> dlist.from_list
+  |> dlist.map(fn(a) { a + 1 })
+  |> dlist.to_list
+  |> should.equal([2, 4, 3, 43])
+}
+
