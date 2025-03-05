@@ -1,7 +1,7 @@
 # differance
 
-[![Package Version](https://img.shields.io/hexpm/v/dlist)](https://hex.pm/packages/dlist)
-[![Hex Docs](https://img.shields.io/badge/hex-docs-ffaff3)](https://hexdocs.pm/dlist/)
+[![Package Version](https://img.shields.io/hexpm/v/differance)](https://hex.pm/packages/differance)
+[![Hex Docs](https://img.shields.io/badge/hex-docs-ffaff3)](https://hexdocs.pm/differance/)
 
 A difference list library for Gleam!
 
